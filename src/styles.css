@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    border-radius: 2.5px;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(to right, rgb(187, 187, 187), rgb(117, 117, 117));
+    font-family: 'Source Code Pro', monospace;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-container {
+    background: linear-gradient(to left, rgb(219, 219, 219), rgb(131, 130, 130));
+    padding: 15px;
+    margin-bottom: -10px;
+    font-family: 'Montserrat', sans-serif;
+    --angle: 0deg;
+    /* … */
+    border-image: linear-gradient(var(--angle), rgb(0, 0, 0), rgb(8, 8, 8)) 1;
+    animation: 10s rotate linear infinite;
+    border: 5px inset;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to left, #000000, #646464);
+}
+
+@keyframes rotate {
+    to {
+        --angle: 360deg;
+    }
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.header-container>header {
+    color: rgb(0, 0, 0);
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.animate-character {
+    text-transform: uppercase;
+    background-image: linear-gradient(-225deg,
+            #000000 0%,
+            #3b3b3b 29%,
+            #999999 67%,
+            #ffffff 100%);
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    text-shadow: 0.5px 0.5px 0.25px #000000;
+}
+
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.header-container>p {
+    float: right;
+    text-align: center;
+    font-size: 12.5px;
+    font-style: oblique;
+    margin-bottom: -5px;
+}
+
+.header-container a {
+    color: rgb(63, 146, 146);
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.header-container a:hover {
+    color: rgb(78, 180, 180);
+    font-weight: 700;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.74);
+    transition: all 250ms ease-out;
+}
+
+.calculator-grid {
+    display: grid;
+    margin-top: 2rem;
+    grid-template-columns: repeat(4, 6rem);
+    grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+    justify-content: center;
+}
+
+.calculator-grid>button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.548);
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.562);
+}
+
+.calculator-grid>button:hover,
+.calculator-grid>button:focus {
+    background-color: rgba(255, 255, 255, 0.719);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output {
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, 0.75);
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: .75rem;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous-operator {
+    color: rgb(255, 255, 255, 0.75);
+}
+
+.output .current-operator {
+    color: rgb(255, 255, 255);
+    font-size: 2.5rem;
+}
