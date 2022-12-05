@@ -1,1 +1,1 @@
-# <img src='public/favicon-16x16.png' /> Calculator with ReactJS by clxrity
+# <a href='https://clxrityy.github.io/calculator/' target='_blank'><img src='public/favicon-32x32.png' /></a> Calculator with ReactJS by clxrity
